@@ -1,0 +1,16 @@
+<h1>Cat Shelter</h1>
+<form action="/" method="GET">
+    <input type="text" name="search">
+    <button>Search</button>
+</form>
+</header>
+
+<main>
+<section class="cats">
+    <ul>
+        {{#each cats}}
+        {{>indexCat}}
+        {{/each}}
+    </ul>
+</section>
+</main>
