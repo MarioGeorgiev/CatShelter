@@ -23,4 +23,5 @@ app.post('/register', AuthController.PostRegiester)
 
 
 app.get('/login', AuthController.GetLogin)
+app.post('/login', AuthController.PostLogin)
 }

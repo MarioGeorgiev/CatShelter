@@ -22,3 +22,10 @@ exports.PostRegiester = async(req,res) =>{
 exports.GetLogin =  (req,res)=>{
     res.render('login')
 }
+
+exports.PostLogin = async (req,res)=>{
+    const{username,password} = req.body
+    const token = await authService.login(username,password)
+    res.cookie('auth', token)
+    res.redirect('/')
+}

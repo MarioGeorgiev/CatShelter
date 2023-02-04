@@ -14,7 +14,11 @@ const UserSchema = mongoose.Schema({
         required : true
     },
     location : {
-
+        type : String,
+        required : true
+    },
+    roles :{
+        type : String
     }
 })
 
