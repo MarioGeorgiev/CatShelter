@@ -19,6 +19,7 @@ app.get('/shelter/delete/:catId',CatController.DeleteCat)
 
 
 app.get('/register', AuthController.GetRegister)
+app.post('/register', AuthController.PostRegiester)
 
 
 app.get('/login', AuthController.GetLogin)
