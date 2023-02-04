@@ -1,6 +1,7 @@
 const HomeControler = require('../Controllers/HomeControler')
 const BreedController = require('../Controllers/BreedController')
 const CatController = require('../Controllers/CatController')
+const AuthController = require('../Controllers/AuthController.js')
 module.exports = (app)=>{
 app.get('/',HomeControler.IndexPage)
 
@@ -15,4 +16,10 @@ app.post('/cats/add-cat', CatController.PostAddCat)
 app.post('/edit/:catId',CatController.PostEditCat)
 
 app.get('/shelter/delete/:catId',CatController.DeleteCat)
+
+
+app.get('/register', AuthController.GetRegister)
+
+
+app.get('/login', AuthController.GetLogin)
 }
