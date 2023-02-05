@@ -1,3 +1,4 @@
+//const router = require('express').Router();
 const HomeControler = require('../Controllers/HomeControler')
 const BreedController = require('../Controllers/BreedController')
 const CatController = require('../Controllers/CatController')
@@ -17,6 +18,7 @@ app.post('/edit/:catId',CatController.PostEditCat)
 
 app.get('/shelter/delete/:catId',CatController.DeleteCat)
 
+app.get('/logout', AuthController.GetLogout)
 
 app.get('/register', AuthController.GetRegister)
 app.post('/register', AuthController.PostRegiester)
@@ -25,3 +27,5 @@ app.post('/register', AuthController.PostRegiester)
 app.get('/login', AuthController.GetLogin)
 app.post('/login', AuthController.PostLogin)
 }
+
+//module.exports = router

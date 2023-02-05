@@ -29,3 +29,9 @@ exports.PostLogin = async (req,res)=>{
     res.cookie('auth', token)
     res.redirect('/')
 }
+
+exports.GetLogout = async (req,res)=>{
+    res.clearCookie('auth')
+    res.redirect('/')
+}
+

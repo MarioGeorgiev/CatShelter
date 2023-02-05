@@ -1,0 +1,28 @@
+const jwt =  require('../lib/jswonwebtoken')
+const secret  = 'ThisIsSecret'
+
+exports.authentication = async(req,res,next) =>{
+    const token = req.cookies['auth']
+    if(token){
+        try {
+            const decondedToken = await jwt.verify(token,secret);
+            req.user = decondedToken;
+            req.isAuthenticated = true
+            res.locals.username = decondedToken
+            res.locals.isAuthenticated = true
+            console.log(decondedToken)
+        } catch (error) {
+            console.log(error);
+            res.clearCookie('auth')
+            res.redirect('/')
+        }
+    }
+    next();
+}
+
+exports.isAuthenticated = (req,res,next) =>{
+    if(!req.isAuthenticated){
+        return res.redirect('/login');
+    }
+    next()
+}
