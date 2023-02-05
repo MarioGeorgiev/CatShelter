@@ -4,7 +4,7 @@ const fileUpload =  require('express-fileUpload')
 const express = require('express')
 const authMidalware = require('../midalwares/authMidalware')
 const cookieParser = require('cookie-parser')
-//const router = require('./routes')
+const router = require('./routes')
 module.exports = (app) =>{
     app.engine('hbs', handlebars.engine({
         extname: "hbs"
@@ -18,5 +18,5 @@ module.exports = (app) =>{
     app.use(express.urlencoded({extended : false}))
     app.use(authMidalware.authentication)
     app.use(fileUpload())
-   // app.use(router)
+    app.use(router)
 }

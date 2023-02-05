@@ -5,7 +5,7 @@ const  SetDB = require('./db/initDB.js')
 
 const app = express();
 require('./config/express')(app);
-require('./config/routes')(app);
+//require('./config/routes')(app);
 
 
 

@@ -1,31 +1,31 @@
-//const router = require('express').Router();
+const router = require('express').Router();
 const HomeControler = require('../Controllers/HomeControler')
 const BreedController = require('../Controllers/BreedController')
 const CatController = require('../Controllers/CatController')
 const AuthController = require('../Controllers/AuthController.js')
-module.exports = (app)=>{
-app.get('/',HomeControler.IndexPage)
+const authMidaware = require('../midalwares/authMidalware')
+//module.exports = (app)=>{
+router.get('/',HomeControler.IndexPage)
 
-app.get('/cats/add-breed',BreedController.GetAddBreed)
-app.post('/cats/add-breed',BreedController.PostAddBreed)
+router.get('/cats/add-breed',authMidaware.isAdmin,BreedController.GetAddBreed)
+router.post('/cats/add-breed',authMidaware.isAdmin,BreedController.PostAddBreed)
 
-app.get('/cats/add-cat', CatController.GetAddCat)
-app.get('/edit/:catId', CatController.GetEditCat)
-app.get('/shelter/:catId', CatController.ShelterCat)
+router.get('/cats/add-cat',authMidaware.isAdmin, CatController.GetAddCat)
+router.get('/edit/:catId',authMidaware.isAdmin, CatController.GetEditCat)
+router.get('/shelter/:catId',authMidaware.isAuthenticated, CatController.ShelterCat)
 
-app.post('/cats/add-cat', CatController.PostAddCat)
-app.post('/edit/:catId',CatController.PostEditCat)
+router.post('/cats/add-cat',authMidaware.isAdmin, CatController.PostAddCat)
+router.post('/edit/:catId',authMidaware.isAdmin,CatController.PostEditCat)
 
-app.get('/shelter/delete/:catId',CatController.DeleteCat)
+router.get('/shelter/delete/:catId',authMidaware.isAuthenticated,CatController.DeleteCat)
 
-app.get('/logout', AuthController.GetLogout)
+router.get('/logout', AuthController.GetLogout)
 
-app.get('/register', AuthController.GetRegister)
-app.post('/register', AuthController.PostRegiester)
+router.get('/register', AuthController.GetRegister)
+router.post('/register', AuthController.PostRegiester)
 
+router.get('/login', AuthController.GetLogin)
+router.post('/login', AuthController.PostLogin)
+//}
 
-app.get('/login', AuthController.GetLogin)
-app.post('/login', AuthController.PostLogin)
-}
-
-//module.exports = router
+module.exports = router
