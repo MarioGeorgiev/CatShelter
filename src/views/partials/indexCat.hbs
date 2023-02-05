@@ -5,7 +5,11 @@
     <p><span>Breed: </span>{{breed.name}}</p>
     <p><span>Description: </span>{{description}}</p>
     <ul class="buttons">
+        {{#if @root.isAdmin}}
         <li class="btn edit"><a href="/edit/{{_id}}">Change Info</a></li>
+        {{/if}}
+        {{#if @root.isAuthenticated}}
         <li class="btn delete"><a href="/shelter/{{_id}}">New Home</a></li>
+        {{/if}}
     </ul>
 </li>
