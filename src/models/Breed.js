@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const BreedSchema = mongoose.Schema({
     name :{
         type : String,
-        required : true
+        required : [true, "Breed is required"]
     }
 })
 
