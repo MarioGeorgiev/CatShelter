@@ -16,10 +16,14 @@ exports.register = async (username,password,phone,location) =>{
 
 exports.login = async (username,password) => {
         const user = await this.getUserByUsername(username)
-        const isValidPassword =await bcrypt.compare(password,user.password)
-        if(!user || !isValidPassword){
+        if(!user){
             
-            throw 'No such username or password'
+            throw Error('No such username or password')
+        }
+        const isValidPassword =await bcrypt.compare(password,user.password)
+        if(!isValidPassword){
+            
+            throw Error('No such username or password')
         }
 
         const payload = {_id: user._id, roles:user.roles, user : user.username}
