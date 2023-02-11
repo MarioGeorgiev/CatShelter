@@ -1,0 +1,17 @@
+{{#if isAdmin}}
+<h1>Adopted Cats</h1>
+<form action="/" method="GET">
+    <input type="text" name="search">
+    <button>Search</button>
+</form>
+</header>
+{{/if}}
+<main>
+<section class="cats">
+    <ul>
+        {{#each cats}}
+        {{>indexCat}}
+        {{/each}}
+    </ul>
+</section>
+</main>

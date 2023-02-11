@@ -49,6 +49,9 @@ html, body {
 .navigation a[href*="register"]::before {
     content: "\f234";
 }
+.navigation a[href*="adopt"]::before {
+    content: "\1F43E";
+}
 
 h1 {
     font-size: 40px;

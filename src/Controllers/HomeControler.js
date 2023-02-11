@@ -1,7 +1,7 @@
 const Cat = require('../models/CatModel')
 const fs = require('fs');
-exports.IndexPage = async (req,res)=>{
-    let cats = await Cat.find().populate('breed').lean()
+exports.indexPage = async (req,res)=>{
+    let cats = await Cat.find({isForAdoption:false}).populate('breed').lean()
 
 
     /*if(req.query.search){
@@ -11,4 +11,8 @@ exports.IndexPage = async (req,res)=>{
     }*/
   
     res.render('index',{cats : cats})
+  }
+  exports.adoptionPage = async (req,res) => {
+    let cats = await Cat.find({isForAdoption:true}).populate('breed').lean()
+    res.render('adopted',{cats : cats})
   }

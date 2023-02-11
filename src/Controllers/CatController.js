@@ -41,8 +41,14 @@ exports.ShelterCat = async (req, res) => {
 
 }
 
-exports.DeleteCat = async (req, res) => {
+exports.ShelterCatPost = async (req, res) => {
     console.log(req.params.catId)
-    await Cat.deleteOne({_id : req.params.catId})
+    let catShelter = await Cat.findById(req.params.catId)
+    catShelter.isForAdoption = true
+    catShelter.save();
     res.redirect('/')
+}
+
+exports.GetAdopted = async (req, res) =>{
+
 }

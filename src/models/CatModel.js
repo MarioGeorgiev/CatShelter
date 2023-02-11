@@ -16,6 +16,15 @@ const CatSchema = mongoose.Schema({
         type : mongoose.Types.ObjectId,
         ref : 'Breed'
     },
+    isForAdoption:{
+        type: Boolean,
+        default: false
+    },
+    isAdopted:{
+        type : Boolean,
+        default: false
+    }
+
 
 })
 
