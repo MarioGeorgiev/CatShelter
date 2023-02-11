@@ -1,5 +1,8 @@
 const Cat = require('../models/CatModel')
 const Breed = require('../models/Breed')
+const User = require('../models/User')
+const mail = require('../services/mailService')
+
 const fs = require('fs');
 exports.GetAddCat = async (req, res) => {
     let breeds = await Breed.find().lean();
@@ -35,20 +38,18 @@ exports.PostEditCat = async (req, res) => {
 }
 
 exports.ShelterCat = async (req, res) => {
-
+    
     let catView = await Cat.findById(req.params.catId).lean()
     res.render('catShelter', { cat: catView })
 
 }
 
 exports.ShelterCatPost = async (req, res) => {
-    console.log(req.params.catId)
+    const user = await User.findOne({username : res.locals.username}).lean()
+    console.log(user)
     let catShelter = await Cat.findById(req.params.catId)
     catShelter.isForAdoption = true
+    mail.sendMail(user)
     catShelter.save();
     res.redirect('/')
-}
-
-exports.GetAdopted = async (req, res) =>{
-
 }

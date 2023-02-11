@@ -1,4 +1,3 @@
-const Cat = require('../models/User')
 const authService = require('../services/authService')
 exports.GetRegister =  (req,res)=>{
     res.render('register')
