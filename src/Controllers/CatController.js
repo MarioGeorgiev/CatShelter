@@ -53,3 +53,22 @@ exports.ShelterCatPost = async (req, res) => {
     catShelter.save();
     res.redirect('/')
 }
+
+exports.AdoptedCatGet = async (req, res) => {
+    let catShelter = await Cat.findById(req.params.catId)
+    catShelter.isAdopted = true
+    catShelter.save();
+    res.redirect('/adopted')
+}
+exports.BackedCatGet = async (req, res) => {
+    let catShelter = await Cat.findById(req.params.catId)
+    catShelter.isAdopted = false
+    catShelter.save();
+    res.redirect('/adopted')
+}
+exports.ReturnedCatGet = async (req, res) => {
+    let catShelter = await Cat.findById(req.params.catId)
+    catShelter.isForAdoption = false
+    catShelter.save();
+    res.redirect('/')
+}

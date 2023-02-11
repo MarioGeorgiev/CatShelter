@@ -19,7 +19,10 @@ router.post('/shelter/:catId',authMidaware.isAuthenticated,CatController.Shelter
 router.post('/cats/add-cat',authMidaware.isAdmin, CatController.PostAddCat)
 router.post('/edit/:catId',authMidaware.isAdmin,CatController.PostEditCat)
 
-router.get('/adopted',authMidaware.isAuthenticated, HomeControler.adoptionPage)
+router.get('/adopted', HomeControler.adoptionPage)
+router.get('/adopted/:catId',authMidaware.isAdmin, CatController.AdoptedCatGet)
+router.get('/backedCat/:catId',authMidaware.isAdmin, CatController.BackedCatGet)
+router.get('/returnedCat/:catId',authMidaware.isAdmin, CatController.ReturnedCatGet)
 
 router.get('/logout', AuthController.GetLogout)
 
@@ -28,6 +31,5 @@ router.post('/register', AuthController.PostRegiester)
 
 router.get('/login', AuthController.GetLogin)
 router.post('/login', AuthController.PostLogin)
-//}
 
 module.exports = router

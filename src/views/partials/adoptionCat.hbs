@@ -1,0 +1,17 @@
+<li>
+    <img src="{{img}}" alt="{{name}}" type="file">
+    <h3></h3>
+    <p><span>Name: </span>{{name}}</p>
+    <p><span>Breed: </span>{{breed.name}}</p>
+    <p><span>Description: </span>{{description}}</p>
+    <ul class="buttons">
+        {{#if @root.isAdmin}}
+        {{#if isAdopted}}
+        <li class="btn edit"><a href="/backedCat/{{_id}}">Return from new home</a></li>
+        {{else}}
+        <li class="btn delete"><a href="/adopted/{{_id}}">New home found</a></li>
+        <li class="btn edit"><a href="/returnedCat/{{_id}}">Looking for adoption</a></li>
+        {{/if}}
+        {{/if}}
+    </ul>
+</li>
