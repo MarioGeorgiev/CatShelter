@@ -3,14 +3,14 @@ const mongoose = require('mongoose')
 const CatSchema = mongoose.Schema({
     name :{
         type : String,
-        required: true
+        required: [true, "Name is required"]
     },
     img:{
         type : String
     },
     description: {
         type : String,
-        required: true
+        required: [true,"Description is required"]
     },
     breed:{
         type : mongoose.Types.ObjectId,
