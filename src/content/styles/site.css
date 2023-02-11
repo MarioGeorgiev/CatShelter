@@ -118,7 +118,7 @@ form button:hover {
 }
 
 .cats li {
-    width: 32%;
+    width: 29,5%;
     margin-left: 5rem;
     margin-bottom: 1.5rem;
     background-color: #fff;
@@ -134,7 +134,7 @@ form button:hover {
 }
 
 .buttons li {
-    margin-left: 1rem;
+    margin-left: 0rem;
 }
 
 .cats ul li .buttons .btn a{
@@ -225,4 +225,58 @@ body > form > label:nth-child(3) {
     text-transform: uppercase;
     background-color: lightskyblue;
     margin-bottom: 1.5rem;
+}
+
+
+.errorContainer {
+    position: fixed;
+    right: 100px;
+    min-width: 100px;
+    display: block;
+    z-index: 11111;
+    top: 55px;
+    text-align: center;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    height: auto;
+    width: 320px;
+    box-shadow: 0 5px 10px rgb(128, 14, 209);
+}
+
+.errorContainer>p {
+    background: rgb(30, 30, 211);
+    font-size: 20px;
+    padding: 20px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.errorContainer {
+    -moz-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        padding: 0;
+    }
 }
