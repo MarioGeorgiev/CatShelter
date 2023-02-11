@@ -118,7 +118,7 @@ form button:hover {
 }
 
 .cats li {
-    width: 26.5%;
+    width: 32%;
     margin-left: 5rem;
     margin-bottom: 1.5rem;
     background-color: #fff;
@@ -134,7 +134,7 @@ form button:hover {
 }
 
 .buttons li {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .cats ul li .buttons .btn a{
